@@ -70,8 +70,16 @@ app.get("/listings/:id/edit", async (req,res) =>{
 app.put("/listings/:id", async (req,res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, {...req.body.listing});
-    res.redirect("/listings");
+    res.redirect(`/listings/${id}`);
 });
+
+// delete route
+app.delete("/listings/:id", async (req,res) => {
+    let { id } = req.params;
+    let deletedListing = await Listing.findByIdAndDelete(id);
+    console.log(deletedListing);
+    res.redirect("/listings");
+})
 
 app.get("/", (req,res) => {
     res.send("HI, I am root");
