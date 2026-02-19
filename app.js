@@ -6,7 +6,7 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const wrapAsync = require("./utils/wrapAsync,js");
+const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const {listingSchema} = require("./schema.js");
 
@@ -93,7 +93,7 @@ app.get("/", (req,res) => {
     res.send("HI, I am root");
 });
 
-app.all("*", (req, res,next) => {
+app.use((req, res, next) => {
     next(new ExpressError(404, "page not found"));
 });
 
