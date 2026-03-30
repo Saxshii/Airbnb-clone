@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust</title>
-</head>
-<body>
+
     <% layout("/layouts/boilerplate") %>
     <div class="row mt-3">
     <div class="col-8 offset-2">
@@ -25,7 +18,7 @@
 
         <div class="mb-3">
             <label for="image" class="form-label">Image link</label>
-            <input name="listing[image]" class="form-control" value="<%= listing.image%>" required> 
+            <input name="listing[image][url]" value="<%= listing.image?.url || listing.image %>" class="form-control">
         </div>
 
         <div class="row">
