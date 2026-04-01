@@ -51,7 +51,7 @@ module.exports.validateReview = (req,res,next) => {
 }
 
 module.exports.isReviewAuthor = async(req,res,next) => {
-    let { reviewId } = req.params;
+    let { id, reviewId } = req.params;
     const review = await Review.findById(reviewId);
     if (!review || !review.author || !review.author.equals(req.user._id)) {
         req.flash("error", "You are not the author of this review!");
