@@ -1,9 +1,9 @@
 body{
     display:flex;
     flex-direction: column;
-    min-width:100vh;
+    min-height:100vh;
 }
-.container{
+.container-fluid{
     flex:1;
 }
 /* navbar */
@@ -95,4 +95,88 @@ body{
 .show-card{
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.starability-result {
+    font-size: 0.5rem !important;
+    transform: scale(0.6);
+    transform-origin: left;
+}
+
+/* New Card Design */
+.listing-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+.listing-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+.listing-img:hover {
+    transform: scale(1.03);
+}
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+    transition: transform 0.2s;
+}
+.wishlist-btn:hover {
+    transform: scale(1.2);
+}
+.wishlist-btn .fa-heart {
+    transition: all 0.2s;
+}
+.wishlist-btn:hover .fa-heart {
+    color: #fe424d;
+    font-weight: 900;
+}
+.listing-info {
+    padding: 8px 2px;
+}
+.listing-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.listing-title {
+    font-size: 0.95rem;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+.listing-location {
+    font-size: 0.82rem;
+    color: #717171;
+    margin-top: 2px;
+}
+.listing-location i {
+    font-size: 0.75rem;
+}
+.listing-price {
+    font-size: 0.9rem;
+    color: #222;
+    margin-top: 4px;
+    font-weight: 500;
+}
+.per-night {
+    font-weight: 400;
+    color: #444;
+}
+.tax-info {
+    display: none;
+    font-size: 0.78rem;
+    color: #717171;
 }

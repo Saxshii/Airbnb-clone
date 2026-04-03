@@ -8,9 +8,8 @@ const listingSchema = joi.object({
       location: joi.string().required(),
       country: joi.string().required(),
       price: joi.number().required(),
-      image: joi.object({
-        url: joi.string().required(),
-      }),
+      image: joi.string().allow("", null),
+      category: joi.string().allow("", null),
     })
     .required(),
 });
