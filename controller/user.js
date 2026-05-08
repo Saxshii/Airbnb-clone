@@ -1,11 +1,12 @@
 const User = require("../models/user.js");
+const Listing = require("../models/listing.js");
+const Review = require("../models/review.js");
 
 module.exports.renderSignup = (req, res) => {
-  res.render("users/signup.ejs");
+    res.render("users/signup.ejs", { hideSearch: true });
 };
-
 module.exports.renderLogin = (req, res) => {
-  res.render("users/login.ejs");
+    res.render("users/login.ejs", { hideSearch: true });
 };
 
 module.exports.signup = async (req, res, next) => {
@@ -40,4 +41,22 @@ module.exports.logout = (req, res, next) => {
     req.flash("success", "You have been logged out.");
     res.redirect("/listings");
   });
+};
+
+module.exports.profile = async (req, res) => {
+    const userListings = await Listing.find({ owner: req.user._id });
+    
+    // Calculate total reviews and avg rating across all listings
+    let totalReviews = 0;
+    let ratingSum = 0;
+    for(let listing of userListings) {
+        const populated = await listing.populate("reviews");
+        totalReviews += populated.reviews.length;
+        for(let review of populated.reviews) {
+            ratingSum += review.rating;
+        }
+    }
+    const avgRating = totalReviews > 0 ? (ratingSum / totalReviews).toFixed(1) : "N/A";
+
+    res.render("users/profile", { userListings, totalReviews, avgRating });
 };

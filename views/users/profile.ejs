@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate") %>
+<div class="profile-container">
+
+    <div class="profile-top">
+        <div class="profile-left-panel">
+            <div class="profile-avatar-box">
+                <i class="fa-solid fa-circle-user fa-5x"></i>
+                <h3><%= currentUser.username %></h3>
+                <p><%= currentUser.email %></p>
+            </div>
+            <div class="profile-stats-box">
+                <div class="stat-item">
+                    <span class="stat-num"><%= userListings.length %></span>
+                    <span class="stat-label">Listings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num"><%= totalReviews %></span>
+                    <span class="stat-label">Reviews received</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num"><%= avgRating !== 'N/A' ? '⭐ ' + avgRating : '—' %></span>
+                    <span class="stat-label">Average rating</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-right-panel">
+            <div class="profile-right-header">
+                <h4>Your Listings</h4>
+                <a href="/listings/new" class="btn auth-btn btn-sm">+ Add New</a>
+            </div>
+
+            <% if(userListings.length === 0){ %>
+                <div class="no-listings">
+                    <i class="fa-solid fa-house-chimney fa-3x"></i>
+                    <p>No listings yet</p>
+                    <a href="/listings/new" class="btn auth-btn mt-2">List your first property</a>
+                </div>
+            <% } else { %>
+                <div class="profile-listings-grid">
+                    <% for(let listing of userListings){ %>
+                        <div class="profile-listing-item">
+                            <a href="/listings/<%= listing._id %>" class="listing-link">
+                                <img src="<%= listing.image?.url %>" alt="listing" class="profile-listing-img"/>
+                                <div class="profile-listing-info">
+                                    <b><%= listing.title %></b>
+                                    <p><i class="fa-solid fa-location-dot"></i> <%= listing.location %>, <%= listing.country %></p>
+                                    <p>&#8377;<%= listing.price.toLocaleString("en-IN") %> / night</p>
+                                </div>
+                            </a>
+                            <div class="profile-listing-actions">
+                                <a href="/listings/<%= listing._id %>/edit" class="btn btn-sm edit-btn">Edit</a>
+                                <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display:inline">
+                                    <button class="btn btn-sm btn-dark">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>

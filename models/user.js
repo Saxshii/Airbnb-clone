@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require("passport-local-mongoose").default;
-const { estimatedDocumentCount } = require("./review");
 
 const UserSchema = new Schema({
     email: {
@@ -10,6 +9,6 @@ const UserSchema = new Schema({
         unique: true,
     }
 });
-UserSchema.plugin(passportLocalMongoose);
 
+UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 module.exports = mongoose.model("User", UserSchema);

@@ -2,6 +2,7 @@ body{
     display:flex;
     flex-direction: column;
     min-height:100vh;
+    background-color: #f8f8f8;
 }
 .container-fluid{
     flex:1;
@@ -178,5 +179,332 @@ body{
 .tax-info {
     display: none;
     font-size: 0.78rem;
+    color: #717171;
+}
+
+/* ===== SHOW PAGE ===== */
+.show-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+.show-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.show-title-row h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    margin-left: 1rem;
+}
+/* Image Grid */
+.show-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-height: 420px;
+    margin-bottom: 2rem;
+}
+.show-main-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+.show-img-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+}
+.show-side-img {
+    width: 100%;
+    height: 206px;
+    object-fit: cover;
+}
+/* Main Content Layout */
+.show-main-content {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+}
+.show-meta {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+/* Host */
+.show-host {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+.host-info p {
+    margin: 0;
+    color: #717171;
+    font-size: 0.85rem;
+}
+/* Price Card */
+.show-right {
+    position: relative;
+}
+.price-card {
+    position: sticky;
+    top: 100px;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.price-card-top {
+    margin-bottom: 0.5rem;
+}
+.price-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.price-per-night {
+    font-size: 1rem;
+    color: #444;
+}
+.price-card-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.date-box {
+    padding: 0.6rem;
+}
+.date-box:first-child {
+    border-right: 1px solid #ddd;
+}
+.date-box label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    display: block;
+}
+.date-box input {
+    border: none !important;
+    padding: 0 !important;
+    font-size: 0.85rem;
+    box-shadow: none !important;
+}
+.reserve-btn {
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.reserve-btn:hover {
+    background-color: #e0333e;
+    color: white;
+}
+/* Reviews */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.review-card {
+    border: 1px solid #eee;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+.review-comment {
+    font-size: 0.9rem;
+    color: #444;
+}
+.show-owner-btns {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+/* ===== AUTH PAGES ===== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.auth-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.auth-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.auth-logo {
+    font-size: 2.5rem;
+    color: #fe424d;
+}
+.auth-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+.auth-header p {
+    color: #717171;
+    font-size: 0.9rem;
+}
+.auth-input {
+    border-radius: 0.5rem !important;
+    padding: 0.7rem 1rem !important;
+}
+.auth-btn {
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.auth-btn:hover {
+    background-color: #e0333e;
+    color: white;
+}
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #444;
+}
+.auth-footer a {
+    color: #fe424d;
+    text-decoration: underline;
+}
+
+/* ===== PROFILE REDESIGN ===== */
+.profile-top {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1100px;
+    padding: 0 1rem;
+}
+.profile-left-panel {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+.profile-avatar-box i {
+    color: #717171;
+}
+.profile-avatar-box h3 {
+    margin-top: 1rem;
+    font-weight: 700;
+}
+.profile-avatar-box p {
+    color: #717171;
+    font-size: 0.85rem;
+}
+.profile-stats-box {
+    margin-top: 1.5rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.stat-num {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.stat-label {
+    color: #717171;
+    font-size: 0.85rem;
+}
+.profile-right-panel {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+.profile-right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.profile-listings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profile-listing-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.8rem;
+    border: 1px solid #eee;
+    border-radius: 0.8rem;
+    background: #fafafa;
+}
+.profile-listing-img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.profile-listing-info b {
+    font-size: 0.95rem;
+}
+.profile-listing-info p {
+    font-size: 0.8rem;
+    color: #717171;
+    margin: 2px 0;
+}
+.profile-listing-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.no-listings {
+    text-align: center;
+    padding: 3rem;
     color: #717171;
 }
